@@ -1,0 +1,40 @@
+/* selection through tag  */
+
+/* h1
+{
+    background-color: blueviolet;
+    font-style:oblique
+}
+
+h2
+{
+    background-color: blueviolet;
+} */
+
+
+#Vegitarean_diet
+{
+    background-color:blueviolet;
+}
+
+#Non_vegitarean
+{
+    background-color: aqua;
+}
+
+.push
+{
+    background-color: aqua;
+}
+
+.pull
+{
+    background-color: aquamarine;
+}
+
+.leg, #Vegitarean_diet
+{
+    background-color: bisque;
+    
+}
+

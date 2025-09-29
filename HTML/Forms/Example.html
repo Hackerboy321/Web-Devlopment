@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+
+        <label>First Name : </label>
+        <input type="text" name="UserFirstName">
+
+        <br><br>
+
+        <label>Last Name : </label>
+        <input type="text" name="UserLastName">
+
+        <br><br>
+
+        <label>Gmail :</label>
+        <input type="text" name="UserGmail">
+
+        <br><br>
+
+        <label>Age :</label>
+        <input type="number" name="UserAge">
+
+        <br><br>
+
+        <label>Password : </label>
+        <input type="password" name="UserPassword">
+
+        <br><br>
+        <label>Gender : </label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="Gender" value="Male">
+
+        <label for="FeMale">FeMale</label>
+        <input type="radio" id="FeMale" name="Gender" value="FeMale">
+
+        <label for="other">Other</label>
+        <input type="radio" id="other" name="Gender" value="Other">
+
+        <br><br>
+
+        <label>Subject : </label>
+        
+        <label for="python">Python</label>
+        <input type="checkbox" id="python" name="Subject" value="python">
+
+        <label for="c++">C++</label>
+        <input type = "checkbox" id="c++" name="Subject" value="c++">
+
+        <label for="java">Java</label>
+        <input type="checkbox" id="java" name="Subject" value="java">
+
+        <br><br>
+        <input type="submit">
+
+
+<br><br>
+
+    </form>
+</body>
+</html>
+
+
+<!-- The `name` attribute in the `<input>` tag specifies the name of the
+  input field. When a form is submitted, the value entered in the input 
+  is sent to the server with this name as the key. It is essential for 
+  form data processing and server-side handling. -->
+
+  <!-- like if fill only last 4 attribute so when we fill the last name and we  
+  not fill the first name so the server can't interpretae it is it is firts name 
+  or it is last name that's why we name attribute to specifies the input data 
+  http://127.0.0.1:3000/HTML/Forms/Example.html?UserFirstName=Deepanshu&
+  UserLastName=Khankriyal&UserGmail=dk%40gmail.com&UserAge=19&UserPassword=123456-->
+
+  <!-- http://127.0.0.1:3000/HTML/Forms/Example.html?UserFirstName=Dk&UserLastName=bose
+   &UserGmail=dk%40gmail.com&UserAge=19&UserPassword=hii&Gender=on 
+   so the above you can see the if we choose any option from any radio option 
+   so by defulte the it send on to the server insted of sending the choosen values
+   so for that we use the "value tag" to specify what we are choosing  in radio now we 
+   can see after using the value tag we can see the change in the url
+    http://127.0.0.1:3000/HTML/Forms/Example.html?UserFirstName=Dk&UserLastName=bose
+    &UserGmail=dkbose&UserAge=19&UserPassword=123456&Gender=Male-->

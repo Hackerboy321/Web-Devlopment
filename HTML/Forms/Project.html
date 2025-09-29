@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=<h1>University Registration Form</h1>
+<p>Please fill out the form below to register</p>, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>University Registration Form</h1>
+    <p>Please fill out the form below to register</p>
+
+    <br />
+
+    <hr />
+    <form>
+
+    <h2>Personal Details</h2>
+
+    <label for="fname">First Name : </label>
+    <input
+      type="text"
+      name="UserFirstName"
+      id="fname"
+      placeholder="e.g Deepanshu"
+      required
+    />
+
+    <br /><br />
+
+    <label for="lname">Last Name : </label>
+    <input
+      type="text"
+      id="lname"
+      name="UserLastName"
+      placeholder="e.g Khankriyal"
+      required
+    />
+
+    <br /><br />
+
+    <label for="DOB">Date of Birth : </label>
+    <input type="date" id="DOB" name="userDOB" />
+
+    <br /><br />
+
+    <label>Gender : </label>
+
+    <br />
+
+    <input type="radio" id="male" name="Gender" value="male" />
+    <label for="male">Male</label>
+
+    <br />
+
+    <input type="radio" id="female" name="Gender" value="female"/>
+    <label for="female">FeMale</label>
+
+    <br />
+
+    <input type="radio" id="other" name="Gender" value="other"/>
+    <label for="other">Other</label>
+
+    <br /><br />
+
+    <label>Upload Your Photo : </label>
+    <br />
+    <input type="file" />
+
+    <br /><br />
+
+    <hr />
+
+    <h2>Contanct Information</h2>
+
+    <label for="gmail">Email Address : </label>
+    <input
+      type="email"
+      id="gmail"
+      name="UserGmail"
+      placeholder="dk@gmail.com"
+    />
+
+    <br /><br />
+
+    <label>Phone Number : </label>
+    <input type="tel" placeholder=" e.g 943590244" />
+
+    <br /><br />
+
+    <label for="Maddress">Mailling Address : </label>
+    <textarea
+      placeholder="nisola , bhimtal, by pass road , nainital"
+      rows="5"
+      name="userMaillingAddress"
+      id="Maddress"
+    ></textarea>
+
+    <hr />
+
+    <h2>Academic Information</h2>
+
+    <label for="cousrse">Select your Course : </label>
+    <br />
+    <select id="course" name="userCourses" >
+      <option value=""disabled selected> Please Select the course</option>
+      <option value="cse">CSE</option>
+      <option value="aiml">AIML</option>
+      <option value="civil">civil</option>
+    </select>
+
+    <br /><br />
+
+    <label>Extracurricular Interests : </label>
+    <br/><br/>
+    
+    <input type="checkbox" id="sport" name="interests" value="sport"></input>
+    <label for="sport">Sport</label>
+    <br/>
+
+    <input type="checkbox" id="music" name="interests" value="music & art">
+    <label for="music">Muusic & art </label>
+
+    <br/>
+
+    <input type="checkbox" id="Techonology" name="interests" value="Techonology club"> </input>
+    <label for="Techonology">Techonology club</label>
+
+  
+    <hr />
+
+    <h2>Create your Account</h2>
+
+    <label>Create a Password : </label>
+    <input type="password" />
+    <br/>
+    <br />
+    <label>Security Question : </label>
+    <select>
+      <option value="" disabled selected >what was your firsrt pet's name </option>
+    </select>
+    <br />
+    <br />
+    <label for="ans" >Security Answar : </label>
+    <input type="text" id="ans" name="SecurityAns" />
+    <br />
+    <br />
+    <input type="checkbox" id="term" name="term" />
+    <label for="term">I agree to the terms and condition</label>
+    <br />
+
+    <hr />
+
+  <button type="submit" >Registration</button>
+  <button type="reset">Clear the form </button>
+  </form>
+  </body>
+</html>
