@@ -1,0 +1,25 @@
+
+body
+{
+    background-color: black;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container
+{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: brown;
+    height: 350px;
+    width: 350px;
+  
+}
+
+.light
+{
+    background-color:bisque;
+
+}
