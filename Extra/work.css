@@ -1,0 +1,40 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+      background-color: rgba(4, 2, 27, 0.956);
+      
+}
+
+.container
+{
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items:center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+   
+}
+
+.box
+{
+    height: 250px;
+    width: 400px;
+    background-color: rgba(4, 2, 27, 0.956);
+    border: 2px solid gray;
+    border-radius: 20px;
+    color: white;
+}
+
+.container > div
+{
+    box-sizing: border-box;
+    padding: 25px ;
+}

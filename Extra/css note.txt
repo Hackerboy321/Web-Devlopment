@@ -1,0 +1,284 @@
+
+# HTML elemnet  - html cetagarise all the element  in 2 type 
+
+1. Block element
+  - take the full width avalible.
+  - start whit new line.
+
+2. Line element
+  - utilize only space required by the content. 
+  - they appear side by side. 
+  - they behavie like text.  
+
+_________________________________________________________________________________________________________________
+
+# Display Property - this property control's how's the html element will display no the website. 
+
+1. Display: block ;
+  - take the full width avalible.
+  - start whit new line.
+  - they respect all the top and buttom margin,height,width property.
+
+2. Display: inline ;
+  - utilize only space required by the content. 
+  - they appear side by side. 
+  - they behavie like text.
+  - they don't respect  the top and buttom margin,height,width property.
+
+3. Display:  inline-block ;
+  - it same as the inline but
+  - it respect the top and buttom margin,height,width property like block element.
+
+_________________________________________________________________________________________________________________
+
+# Text style Property 
+
+1. text-align - It controls the horizontal align of the text (left , center, right, justify ).
+
+2. text-decoration -  it help to add line in the text ( underline , overline, endline , line-through )
+   - text-decoration: ( what type of line you want to draw , style , color , thikness ) ; 
+
+3. text-transform - change how's the text letter are capitalize.
+  - text-transform: uppercase; - all the letter in capital
+  - text-transform: lowercase; - all the letter in small
+  - text-transform: capitalize; - the first letter of the every letter get capital.
+
+____________________________________________________________________________________________________________________
+
+
+# css element units
+
+1. 1px (pixle)
+  - it is absolute units
+  - they mantain a fixed size regradless of context or device 
+
+2. 1pt (point) 
+   - some as the pixle 
+   - but point > pixle
+
+3. 1em
+  - it is reletive unit.
+  - 1em is the 100% of the perent size.
+
+4. 1rem
+  - it is reletive unit.
+  - 1em is the 100% of the root size. (html element) 
+  - it is reponsable for reponsive webpages.
+
+___________________________________________________________________________________________________________________
+
+# Color Gradient - There are two type of gradient in css
+
+1. Linear gradient
+  - background: linear-gradient(direction, color1, color2, ...);
+  - background: linear-gradient(to right, red, yellow);
+
+2. Radial gradient 
+  - background: radial-gradient(shape size at position, color1, color2, ...);
+  - background: radial-gradient(circle, red,yellow); 
+
+___________________________________________________________________________________________________________________
+
+# Shadow
+
+1. Box-Shadow
+  - box-shadow: offset-x offset-y blur-radius color;
+
+___________________________________________________________________________________________________________________
+
+# CSS COMBINATORS -  Combinators define the relationship between selectors there are mainly 4 type .
+   
+  1 DESCENDANT COMBINATOR (space)
+  --------------------------------
+
+   - Selects ALL elements inside another element
+
+  div p {
+    color: blue;
+  }
+
+  Example:
+  -----------
+  <div>
+    <p>Blue</p>
+    <section><p>Also blue</p></section>
+  </div>
+
+  2.  CHILD COMBINATOR (>)
+  --------------------------
+
+   - Selects ONLY direct children
+
+    div > p {
+      color: red;
+    }
+
+    Example:
+  -----------
+      <div>
+        <p>Red</p>
+        <section><p>â Not red (nested deeper)</p></section>
+      </div>
+
+
+ 3 ADJACENT SIBLING COMBINATOR (+)
+ -------------------------------------
+
+  - Selects the FIRST element immediately after another 
+
+  h1 + p {
+    color: green;
+  }
+  Example:
+    <h1>Heading</h1>
+    <p>Green</p>
+    <p> Not green</p>
+
+
+4. GENERAL SIBLING COMBINATOR (~)
+-------------------------------------
+
+  - Selects ALL siblings after another element
+
+  h1 ~ p {
+    color: purple;
+  }
+
+  Example:
+----------------
+
+    <h1>Heading</h1>
+    <p>Purple</p>
+    <p>Also purple</p>
+
+           Summary
+    ---------------------
+
+   (space)   any nested element
+   (>)       direct child
+   (+)       next immediate sibling
+   (~)       all next siblings
+
+___________________________________________________________________________________________________________________
+
+# Attribute Selectors ( for inputs)
+ 
+ > Example
+
+  <body>
+    <input type="email">
+    <input type="text">
+  </body> 
+
+  css:
+
+  input[type="email"]
+  {
+    height: 100px; 
+  }
+
+  input[type="email"]
+  {
+    height: 100px; 
+  }
+
+___________________________________________________________________________________________________________________
+
+# Position Property - The position property defines how an element is 
+positioned in the document and how its top, right, bottom, left values will work.
+
+1. static ( default)
+
+  - Default position for all elements.
+  - The element stays in the normal flow (no top/left/right/bottom works).
+  - You canât move it using top or lef
+
+2. relative
+
+  - The element stays in the document flow (takes up space normally).
+  - But it moves visually relative to its original position.
+
+3. absolute 
+
+  - Removed from normal flow (no space reserved).
+  - Positioned relative to the nearest positioned ancestor 
+   (an element with position: relative, absolute, or fixed).
+
+4. fixed
+
+  - Stays fixed to the viewport (screen).
+  - Does not move even when you scroll.
+
+5. sticky
+
+  - Acts like relative until you scroll past it.
+  - Then it sticks to the top (or wherever defined).
+  - Needs a scrollable container to work
+
+___________________________________________________________________________________________________________________
+
+---------------------------------------------------
+  # CSS PSEUDO-ELEMENTS 
+---------------------------------------------------
+
+   Used to style specific parts of an element
+   or add virtual content without extra HTML.
+   Syntax: selector::pseudo-element
+--------------------------------------------------- 
+
+1. ::first-line ->  Styles only the first line of text 
+
+2. ::first-letter ->  Styles only the first letter
+
+3. ::before ->  Adds content before elementâs content 
+
+4. ::after - Adds content after elementâs content 
+
+5. ::selection - Styles text when user selects it 
+
+Summary:
+   ::first-line  - first line
+   ::first-letter - first letter
+   ::before       - add before
+   ::after        - add after
+   ::selection    - highlight style
+
+___________________________________________________________________________________________________________________
+
+--# Flexbox Property
+
+  > Container Properties
+
+    1. display: flex; â Enables Flexbox on a container.
+
+
+    2. flex-direction â Sets the direction of items (row, column, etc.).
+
+    3. justify-content â Aligns items horizontally (main axis).
+      Values: flex-start, flex-end, center, space-between, space-around, space-evenly.
+
+    4. align-items â Aligns items vertically (cross axis).
+    Values: flex-start, flex-end, center, stretch, baseline.
+
+    5. flex-wrap â Allows items to wrap into new lines if they overflow (nowrap, wrap, wrap-reverse).
+
+    6. gap â Adds space between flex items.
+
+    7. align-content â Aligns multiple rows (when wrapping) along the cross axis.
+
+-------------------------------------------------------------------------
+
+> Item Properties
+
+    8. align-self â Overrides align-items for a single item.
+    9. flex-grow â Controls how much an item expands relative to others.
+
+    10. flex-shrink â Controls how much an item shrinks relative to others.
+
+-------------------------------------------------------------------------
+
+> Responsive Properties
+
+    11. min-width / max-width â Set minimum and maximum width limits for flex items.
+
+    12. @media â Used for media queries to make the layout responsive (different styles for different screen)
