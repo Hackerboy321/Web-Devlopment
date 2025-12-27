@@ -58,7 +58,6 @@ let currentQuestionIndex = 0 ;
 let score = 0 ; 
 
 
-const currentQuestion = quizQuestions[currentQuestionIndex] 
 
 // quiz screen 
 
@@ -69,78 +68,37 @@ function ShowQuizScreen()
   // changing the screen 
   startScreen.classList.remove("active") ;
   quizScreen.classList.add("active") ; 
+  showQuestion() ;
 }
 
-
-
-questionText.textContent = currentQuestion.question ;
-currentQuestionIndex++ ; 
-currentQuestionSpan.textContent = currentQuestionIndex ;
-
-// for options 
-
-currentQuestion.answers.forEach(option => {
-
-  const button = document.createElement("button") ;
-  button.classList.add("answer-btn") ;
-  button.textContent = option.text ;
-  button.dataset.correct = option.correct ; 
-  answerContainer.appendChild(button) ;
-  button.addEventListener("click" , selectAnswer)
- 
-  
-});
-
-function selectAnswer(event)
+function showQuestion()
 {
-  const selectedButton = event.target
-  const iscorrect = selectedButton.dataset.correct === "true" ; 
+  const currentQuestion = quizQuestions[currentQuestionIndex] ;
+  questionText.textContent = currentQuestion.question ;
+  currentQuestionSpan.textContent = currentQuestionIndex + 1 ;
 
-  Array.from(answerContainer.children).forEach((button) => {
+  currentQuestion.answers.forEach(option => {
 
-    if(button.dataset.correct === "true") 
-    {
-      button.classList.add("correct") ; 
-    }
-    else button.classList.add("incorrect") ; 
-  })
-
-  
+  const btn = document.createElement("button") ; 
+  btn.classList.add("answer-btn") ;
+  btn.textContent = option.text ; 
+  btn.dataset.correntAns = option.correct ; 
+  answerContainer.appendChild(btn) ; 
+  btn.addEventListener("click" , selecteOption)  
+  });
 }
 
-
-
-questionText.textContent = currentQuestion.question ;
-currentQuestionIndex++ ; 
-currentQuestionSpan.textContent = currentQuestionIndex ;
-
-// for options 
-
-currentQuestion.answers.forEach(option => {
-
-  const button = document.createElement("button") ;
-  button.classList.add("answer-btn") ;
-  button.textContent = option.text ;
-  button.dataset.correct = option.correct ; 
-  answerContainer.appendChild(button) ;
-  button.addEventListener("click" , selectAnswer)
- 
-  
-});
-
-function selectAnswer(event)
+function selecteOption(event)
 {
-  const selectedButton = event.target
-  const iscorrect = selectedButton.dataset.correct === "true" ; 
 
-  Array.from(answerContainer.children).forEach((button) => {
+  const selectedBtn = event.target ; 
+  const isCorrect =  selectedBtn.dataset.correctAns === "true" ; 
 
-    if(button.dataset.correct === "true") 
-    {
-      button.classList.add("correct") ; 
-    }
-    else button.classList.add("incorrect") ; 
-  })
+  if(isCorrect) 
+  {
+    selectedBtn.classList.add()
+  }
 
-  
+
 }
+

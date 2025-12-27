@@ -58,7 +58,7 @@ body
   text-align: center;
   padding: 2rem;
    background-color: white;
-   height: 400px;
+   height: 460px;
    width: 600px;
    border-radius: 15px;
    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -83,8 +83,7 @@ body
   display:  flex;
   flex-direction: column;
   justify-content: center ;
-  gap: 10px ;
-  margin-bottom: 25px;
+  margin-bottom: 1px;
 
 }
 
