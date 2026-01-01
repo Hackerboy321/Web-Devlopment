@@ -1,9 +1,25 @@
+
+const startScreen = document.getElementById("start-screen") ;
+const quizScreen = document.getElementById("quiz-screen") ;
+const resultScreen = document.getElementById("result-screen"); 
+
+const startBtn = document.getElementById("start-btn") ; 
+const restartBtn = document.getElementById("restart-btn");
+
 const questionText = document.getElementById("question-text")
-const currentQuestionSpan = document.getElementById("current-question") 
-const answerContainer = document.getElementById("ans-container") ;
-const startBtn = document.getElementById("start-btn") ;
-const startScreen = document.getElementById("start-screen") ; 
-const quizScreen = document.getElementById("quiz-screen")
+const answersContainer = document.getElementById("answers-container");
+
+const scoreSpan = document.getElementById("score") ; 
+const currentQuestionSpan = document.getElementById("current-question") ;
+const totalQuestionsSpan = document.getElementById("total-questions") ;
+
+const finalScoreSpan = document.getElementById("final-score") ; 
+const resultMessage = document.getElementById("result-message") ;
+
+
+
+
+// Quiz Question 
 const quizQuestions = [
     {
       question: "What is the capital of France?",
@@ -52,53 +68,110 @@ const quizQuestions = [
     },
   ];
 
+  const Message = 
+  [ "Perfect! You're a genius!",
+    "Great job! You know your stuff!",
+    "Good effort! Keep learning!",
+    "Not bad! Try again to improve!",
+    "Keep studying! You'll get better!" ]
+  
 
-
-let currentQuestionIndex = 0 ; 
-let score = 0 ; 
-
-
-
-// quiz screen 
-
-startBtn.addEventListener("click", ShowQuizScreen)
-
-function ShowQuizScreen()
+function resetState()
 {
-  // changing the screen 
-  startScreen.classList.remove("active") ;
-  quizScreen.classList.add("active") ; 
-  showQuestion() ;
+  currentQuestionIndex = 0 ; 
+  score = 0 ;
+  scoreSpan.textContent = score ;
+  totalQuestionsSpan.textContent = quizQuestions.length ;
 }
 
+
+
+// for showing the Quiz Screen 
+startBtn.addEventListener("click" ,startQuiz) ; 
+
+function startQuiz()
+{
+    resetState() ;
+    startScreen.classList.remove("active") ; 
+    quizScreen.classList.add("active");
+    showQuestion()
+}
+
+//  for showing the question 
 function showQuestion()
 {
-  const currentQuestion = quizQuestions[currentQuestionIndex] ;
-  questionText.textContent = currentQuestion.question ;
-  currentQuestionSpan.textContent = currentQuestionIndex + 1 ;
 
-  currentQuestion.answers.forEach(option => {
+  const currentQuestion = quizQuestions[currentQuestionIndex++] ; 
+  currentQuestionSpan.textContent = currentQuestionIndex ; 
+  questionText.textContent = currentQuestion.question;
 
-  const btn = document.createElement("button") ; 
-  btn.classList.add("answer-btn") ;
-  btn.textContent = option.text ; 
-  btn.dataset.correntAns = option.correct ; 
-  answerContainer.appendChild(btn) ; 
-  btn.addEventListener("click" , selecteOption)  
+  // for clearing the previouse answer
+  answersContainer.innerHTML = "";
+  
+  // for showing the options 
+  currentQuestion.answers.forEach((Option) => {
+  const optionBtn = document.createElement("button") ; 
+  optionBtn.classList.add("answer-btn") ; 
+  optionBtn.textContent = Option.text ; 
+  optionBtn.dataset.isCorrect = Option.correct ;
+  answersContainer.appendChild(optionBtn) ;
+
+  //when user will click on any option 
+  optionBtn.addEventListener("click", selectAnswer)
+  
   });
 }
 
-function selecteOption(event)
+
+function selectAnswer(event) 
 {
 
-  const selectedBtn = event.target ; 
-  const isCorrect =  selectedBtn.dataset.correctAns === "true" ; 
+   const selectedBtn = event.target ;
+   const isCorrectOption = selectedBtn.dataset.isCorrect === "true" ; 
+   if(isCorrectOption)
+   {
+      
+      selectedBtn.classList.add("correct") ; 
+      score++ ; 
+      scoreSpan.textContent = score ;
+   }
+   else selectedBtn.classList.add("incorrect") ;
 
-  if(isCorrect) 
-  {
-    selectedBtn.classList.add()
-  }
+   setTimeout(() => {
+    
+    if( currentQuestionIndex < quizQuestions.length) 
+    {
+        showQuestion() ;
+    }
+    else showResults() ; 
+   }, 1000);
+   
+}
 
+function showResults()
+{
+   quizScreen.classList.remove("active") ; 
+   resultScreen.classList.add("active") ;
+
+   finalScoreSpan.textContent = score ;
+
+   const percentage = (score / quizQuestions.length) * 100 ; 
+   console.log(percentage) ; 
+
+        if ( percentage === 100) resultMessage.textContent = Message[0] ; 
+   else if ( percentage >= 80) resultMessage.textContent = Message[1] ;
+   else if ( percentage >= 60) resultMessage.textContent = Message[2] ;
+   else if ( percentage >= 40) resultMessage.textContent = Message[3] ;
+   else resultMessage.textContent = Message[4] ;
 
 }
+
+restartBtn.addEventListener("click" ,restartQuiz) ; 
+
+function restartQuiz()
+{
+  resultScreen.classList.remove("active") ; 
+  showQuizScreen() ;
+}
+
 
