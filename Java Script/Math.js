@@ -1,4 +1,4 @@
-/ 
+/*
    /* JavaScript Math Module
    =====================
    The Math object provides static properties and methods for mathematical operations.

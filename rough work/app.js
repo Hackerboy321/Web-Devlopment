@@ -10,6 +10,7 @@ const questionText = document.getElementById("question-text")
 const answersContainer = document.getElementById("answers-container");
 
 const scoreSpan = document.getElementById("score") ; 
+const progressBar = document.getElementById("progress") ;
 const currentQuestionSpan = document.getElementById("current-question") ;
 const totalQuestionsSpan = document.getElementById("total-questions") ;
 
@@ -86,6 +87,7 @@ function resetState()
 
 
 
+
 // for showing the Quiz Screen 
 startBtn.addEventListener("click" ,startQuiz) ; 
 
@@ -101,13 +103,20 @@ function startQuiz()
 function showQuestion()
 {
 
+  // progress bar 
+
+  const progressPersentage = (currentQuestionIndex / quizQuestions.length) * 100 ; 
+  progressBar.style.width = progressPersentage + "%" ;
+  
   const currentQuestion = quizQuestions[currentQuestionIndex++] ; 
   currentQuestionSpan.textContent = currentQuestionIndex ; 
   questionText.textContent = currentQuestion.question;
 
+  
+
   // for clearing the previouse answer
   answersContainer.innerHTML = "";
-  
+
   // for showing the options 
   currentQuestion.answers.forEach((Option) => {
   const optionBtn = document.createElement("button") ; 
@@ -115,6 +124,7 @@ function showQuestion()
   optionBtn.textContent = Option.text ; 
   optionBtn.dataset.isCorrect = Option.correct ;
   answersContainer.appendChild(optionBtn) ;
+
 
   //when user will click on any option 
   optionBtn.addEventListener("click", selectAnswer)
@@ -125,7 +135,6 @@ function showQuestion()
 
 function selectAnswer(event) 
 {
-
    const selectedBtn = event.target ;
    const isCorrectOption = selectedBtn.dataset.isCorrect === "true" ; 
    if(isCorrectOption)
@@ -156,7 +165,6 @@ function showResults()
    finalScoreSpan.textContent = score ;
 
    const percentage = (score / quizQuestions.length) * 100 ; 
-   console.log(percentage) ; 
 
         if ( percentage === 100) resultMessage.textContent = Message[0] ; 
    else if ( percentage >= 80) resultMessage.textContent = Message[1] ;
